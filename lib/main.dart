@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get_storage/get_storage.dart';
 import 'pages/auth/login_page.dart';
 import 'pages/home/home_page.dart';
+import 'package:get/get.dart';
 
 void main() async {
   await GetStorage.init(); // Inisialisasi GetStorage
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
     // Cek apakah user masih login
     final isLoggedIn = _storage.read('user') != null;
 
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Flutter GetStorage App',
       // Jika user masih login, arahkan ke HomePage, jika tidak, arahkan ke LoginPage
       home: isLoggedIn ? HomePage() : LoginPage(),
